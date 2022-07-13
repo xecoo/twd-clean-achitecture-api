@@ -1,4 +1,4 @@
-import { UserData } from "../../../usecases/register-user-on-mailing-list/user-data"
+import { UserData } from '../../../usecases/register-user-on-mailing-list/user-data'
 
 describe('Register user on mailing list use case', () => {
   test('Should add user with complete data to mailing list', async () => {
