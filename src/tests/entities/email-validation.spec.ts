@@ -31,13 +31,18 @@ describe('Email validation', () => {
     expect(Email.validate(email)).toBeFalsy()
   })
 
-  test('should not accept empty local part ', () => {
+  test('should not accept empty local part', () => {
     const email: string = '@email.com'
     expect(Email.validate(email)).toBeFalsy()
   })
 
-  test('should not accept empty domain part ', () => {
+  test('should not accept empty domain part', () => {
     const email: string = 'bruno.pacheco@'
+    expect(Email.validate(email)).toBeFalsy()
+  })
+
+  test('should not accept domain with a part larger than 63 chars', () => {
+    const email: string = 'bruno.pacheco@' + 'd'.repeat(64) + '.com'
     expect(Email.validate(email)).toBeFalsy()
   })
 })
