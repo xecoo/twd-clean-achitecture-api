@@ -1,5 +1,5 @@
-import { UserRepository } from '../usecases/ports/user-repository'
-import { UserData } from '../usecases/register-user-on-mailing-list/user-data'
+import { UserRepository } from '../../application/usecases/ports/user-repository'
+import { UserData } from '../../domain/register-user-on-mailing-list/user-data'
 
 export class InMemoryUserRepository implements UserRepository {
   private repository: UserData[]
