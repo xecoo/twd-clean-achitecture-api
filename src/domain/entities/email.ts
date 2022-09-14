@@ -1,5 +1,22 @@
+import { Either, left, right } from '../../crossCutting/either'
+import { InvalidEmailError } from '../errors/invalid-email-error'
+
 export class Email {
-  static validate (email: string): boolean {
+  private readonly email: string
+
+  constructor(email: string) {
+    this.email = email
+  }
+
+  static create(email: string): Either<InvalidEmailError, Email> {
+    if (Email.validate(email)) {
+      return right(new Email(email))
+    }
+
+    return left(new InvalidEmailError())
+  }
+
+  static validate(email: string): boolean {
     if (!email) return false
 
     if (email.length > 320) return false
