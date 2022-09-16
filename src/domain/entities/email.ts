@@ -2,13 +2,13 @@ import { Either, left, right } from '../../crossCutting/either'
 import { InvalidEmailError } from '../errors/invalid-email-error'
 
 export class Email {
-  private readonly email: string
+  public readonly email: string
 
   private constructor (email: string) {
     this.email = email
   }
 
-  static create (email: string): Either<InvalidEmailError, Email> {
+  public static create (email: string): Either<InvalidEmailError, Email> {
     if (Email.validate(email)) {
       return right(new Email(email))
     }
