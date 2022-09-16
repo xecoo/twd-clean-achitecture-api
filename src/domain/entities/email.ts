@@ -2,10 +2,10 @@ import { Either, left, right } from '../../crossCutting/either'
 import { InvalidEmailError } from '../errors/invalid-email-error'
 
 export class Email {
-  public readonly email: string
+  public readonly value: string
 
   private constructor (email: string) {
-    this.email = email
+    this.value = email
   }
 
   public static create (email: string): Either<InvalidEmailError, Email> {
