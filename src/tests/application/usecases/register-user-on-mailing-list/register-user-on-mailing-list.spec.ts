@@ -6,7 +6,7 @@ import { RegisterUserOnMailingList } from '../../../../domain/register-user-on-m
 import { UserData } from '../../../../domain/register-user-on-mailing-list/user-data'
 import { InMemoryUserRepository } from '../../../../infra/repository/in-memory-user-repository'
 
-describe('Register user on mailing list use case', () => {
+describe('Register user on mailing list use case', async () => {
   test('Should add user with complete data to mailing list', async () => {
     const users: UserData[] = []
     console.log(users)
@@ -16,7 +16,7 @@ describe('Register user on mailing list use case', () => {
     const email = 'any@email.com'
     const response = await usecase.registerUserOnMailingList({ name, email })
     const user = await repo.findUserByEmail('any@email.com')
-    expect((await user).name).toBe('any_name')
+    expect((user).name).toBe('any_name')
     expect(response.value.name).toBe('any_name')
   })
 
@@ -29,7 +29,7 @@ describe('Register user on mailing list use case', () => {
     const invalidEmail = 'invalid_email'
     const response = await usecase.registerUserOnMailingList({ name, email: invalidEmail })
     const user = await repo.findUserByEmail('any@email.com')
-    expect((await user)).toBeNull()
+    expect((user)).toBeNull()
     expect(response).toEqual(left(new InvalidEmailError()))
   })
 
@@ -42,7 +42,7 @@ describe('Register user on mailing list use case', () => {
     const email = 'any@email.com'
     const response = await usecase.registerUserOnMailingList({ name: invalidName, email: email })
     const user = await repo.findUserByEmail(email)
-    expect((await user)).toBeNull()
+    expect((user)).toBeNull()
     expect(response).toEqual(left(new InvalidNameError()))
   })
 })
