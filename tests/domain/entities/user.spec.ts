@@ -1,5 +1,5 @@
 // import { left } from '../../../crossCutting/either'
-import { User } from '../../../domain/entities/user'
+import { User } from '../../../src/domain/entities/user'
 // import { InvalidEmailError } from '../../../domain/errors/invalid-email-error'
 // import { InvalidNameError } from '../../../domain/errors/invalid-name-error'
 
