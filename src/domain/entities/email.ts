@@ -1,5 +1,5 @@
-import { Either, left, right } from '../../crossCutting'
-import { InvalidEmailError } from '../errors'
+import { Either, left, right } from '@/crossCutting'
+import { InvalidEmailError } from '@/domain/errors'
 
 export class Email {
   public readonly value: string

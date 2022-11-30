@@ -1,6 +1,6 @@
-import { Either, left, right } from '../../crossCutting'
-import { InvalidEmailError, InvalidNameError } from '../errors'
-import { Name, Email, UserData } from './'
+import { Either, left, right } from '@/crossCutting'
+import { InvalidEmailError, InvalidNameError } from '@/domain/errors'
+import { Name, Email, UserData } from '@/domain/entities'
 
 export class User {
   public readonly name: Name

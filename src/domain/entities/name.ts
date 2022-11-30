@@ -1,5 +1,5 @@
-import { InvalidNameError } from '../errors'
-import { Either, left, right } from '../../crossCutting'
+import { InvalidNameError } from '@/domain/errors'
+import { Either, left, right } from '@/crossCutting'
 
 export class Name {
   public readonly value: string

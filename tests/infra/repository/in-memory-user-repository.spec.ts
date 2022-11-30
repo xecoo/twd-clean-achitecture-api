@@ -1,5 +1,5 @@
-import { UserData } from '../../../src/domain/entities'
-import { InMemoryUserRepository } from './'
+import { UserData } from '@/domain/entities'
+import { InMemoryUserRepository } from '@tests/infra/repository'
 
 describe('In Memory User repository', () => {
   test('should return null if user is not found', async () => {

@@ -1,7 +1,7 @@
-import { Either, left, right } from '../../../crossCutting'
-import { InvalidEmailError, InvalidNameError } from '../../../domain/errors'
-import { UserRepository } from '../ports'
-import { User, UserData } from '../../../domain/entities'
+import { Either, left, right } from '@/crossCutting'
+import { InvalidEmailError, InvalidNameError } from '@/domain/errors'
+import { UserRepository } from '@/application/usecases/ports'
+import { User, UserData } from '@/domain/entities'
 
 export class RegisterUserOnMailingList {
   private readonly userRepo: UserRepository

@@ -1,4 +1,4 @@
-import { Email } from '../../../src/domain/entities'
+import { Email } from '@/domain/entities'
 
 describe('Email validation', () => {
   test('should not accept null strings', () => {
