@@ -1,7 +1,6 @@
-// import { left } from '../../../crossCutting/either'
-import { User } from '../../../src/domain/entities/user'
-// import { InvalidEmailError } from '../../../domain/errors/invalid-email-error'
-// import { InvalidNameError } from '../../../domain/errors/invalid-name-error'
+// import { left } from '../../../crossCutting'
+import { User } from '../../../src/domain/entities'
+// import { InvalidEmailError, InvalidNameError } from '../../../domain/errors'
 
 describe('User domain entity', () => {
   test('should not create user with invalid e-mail address', () => {

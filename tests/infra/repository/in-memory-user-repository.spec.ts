@@ -1,5 +1,5 @@
-import { UserData } from '../../../src/domain/register-user-on-mailing-list/user-data'
-import { InMemoryUserRepository } from './in-memory-user-repository'
+import { UserData } from '../../../src/domain/entities'
+import { InMemoryUserRepository } from './'
 
 describe('In Memory User repository', () => {
   test('should return null if user is not found', async () => {
