@@ -1,5 +1,6 @@
 import { RegisterUserOnMailingList } from "@/application/usecases/register-user-on-mailing-list";
 import { UserData } from "@/domain/entities";
+import { created } from "@/application/web-controllers/util";
 import { HttpRequest } from "./http-request";
 import { HttpResponse } from "./http-response";
 
@@ -15,14 +16,8 @@ export class RegisterUserController{
         const response = await this.usecase.registerUserOnMailingList(userData)
 
         if (response.isRight()) {
-            const httpResponse: HttpResponse = {
-                statusCode: 201,
-                body: {
-                    name: response.value.name,
-                    email: response.value.email
-                }
-            }
-            
+            const httpResponse: HttpResponse = created(response.value)
+
             return httpResponse
         }
     }
