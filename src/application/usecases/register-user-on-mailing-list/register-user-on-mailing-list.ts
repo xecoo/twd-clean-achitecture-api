@@ -10,7 +10,7 @@ export class RegisterUserOnMailingList {
     this.userRepo = userRepo
   }
 
-  public async registerUserOnMailingList (
+  public async perform (
     request: UserData
   ): Promise<Either<InvalidNameError | InvalidEmailError, UserData>> {
     const userOrError: Either<InvalidNameError | InvalidEmailError, User> =
