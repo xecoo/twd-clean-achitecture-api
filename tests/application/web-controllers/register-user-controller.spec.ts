@@ -5,12 +5,15 @@ import { HttpRequest, HttpResponse, RegisterUserController } from "@/application
 import { UserData } from "@/domain/entities"
 import { InvalidEmailError, InvalidNameError } from "@/domain/errors"
 import { InMemoryUserRepository } from "@tests/infra/repository"
+import { ErrorThrowingUseCaseStub } from "../stubs/error-throwing-use-case-stub"
 
 describe('Register user web controller', () => {
     const users: UserData[] = []
     const repo: UserRepository = new InMemoryUserRepository(users)
-    const usecase: RegisterUserOnMailingList = new RegisterUserOnMailingList(repo)
+    const usecase: UseCase = new RegisterUserOnMailingList(repo)
     const controller: UseCase = new RegisterUserController(usecase)
+
+    const errorThrowingUseCaseStub: UseCase = new ErrorThrowingUseCaseStub()
    
     test('Should return status code 201 when request contains valid user data', async () => {
         const request: HttpRequest = {
@@ -87,7 +90,9 @@ describe('Register user web controller', () => {
                 email: 'any@mail.com'
             }
         }
-        const response: HttpResponse =await  controller.perform(request)
+
+        const controller: UseCase = new RegisterUserController(errorThrowingUseCaseStub)
+        const response: HttpResponse = await  controller.perform(request)
         expect(response.statusCode).toEqual(500)
         expect(response.body).toBeInstanceOf(Error)
     })
