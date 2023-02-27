@@ -6,9 +6,9 @@ import { MissingParamError } from "@/application/web-controllers/errors";
 import { UseCase } from "@/application/usecases/ports";
 
 export class RegisterUserController implements UseCase{ 
-    private readonly usecase: RegisterUserOnMailingList
+    private readonly usecase: UseCase
 
-    constructor(usecase: RegisterUserOnMailingList) {
+    constructor(usecase: UseCase) {
         this.usecase = usecase
     }
     public async perform (request: HttpRequest): Promise<HttpResponse> {
@@ -20,7 +20,7 @@ export class RegisterUserController implements UseCase{
             }
             
             const userData: UserData = request.body
-            const response = await this.usecase.registerUserOnMailingList(userData)
+            const response = await this.usecase.perform(userData)
 
             if (response.isLeft()) {
                 return badRequest(response.value)
