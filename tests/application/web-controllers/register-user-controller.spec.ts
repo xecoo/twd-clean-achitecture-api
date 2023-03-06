@@ -4,7 +4,7 @@ import { MissingParamError } from "@/application/web-controllers/errors/errors"
 import { RegisterUserController } from "@/application/web-controllers/"
 import { UserData } from "@/domain/entities"
 import { InvalidEmailError, InvalidNameError } from "@/domain/errors"
-import { InMemoryUserRepository } from "@tests/infra/repository"
+import { InMemoryUserRepository } from "@/infra/repository"
 import { ErrorThrowingUseCaseStub } from "../stubs/error-throwing-use-case-stub"
 import { HttpRequest, HttpResponse } from "@/application/web-controllers/ports"
 
