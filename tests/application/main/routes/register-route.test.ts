@@ -4,7 +4,7 @@ import app from '@/application/main/config/app'
 describe('Register routes', () => { 
     test('should return an account with success',async () => { 
         app.post('/test_cors', (req, res) => {
-            request.send()
+            res.send()
         })
         await request(app)
             .post('/api/register')
@@ -15,3 +15,4 @@ describe('Register routes', () => {
         .expect(201)
     })
 })
+ 
