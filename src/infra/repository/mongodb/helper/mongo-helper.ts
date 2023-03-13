@@ -12,6 +12,6 @@ export const MongoHelper = {
         return this.client.db().collection(name)
     },
     clearCollection (name: string): void {
-        this.client.db().collection(name).deleteMany()
+        this.client.db().collection(name).deleteMany({})
     }
 }
