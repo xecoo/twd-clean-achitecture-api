@@ -7,7 +7,6 @@ module.exports = {
     '!**/test/**',
     '!**/config/**'
   ],
-  testEnvironment: "jsdom",
   transform: {
     '.+\\.ts$': 'ts-jest'
   },
