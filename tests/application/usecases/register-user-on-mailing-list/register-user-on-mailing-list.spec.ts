@@ -3,7 +3,7 @@ import { RegisterUserOnMailingList } from '@/application/usecases/register-user-
 import { UserData } from '@/domain/entities'
 import { InMemoryUserRepository } from '@/infra/repository'
 
-describe('Register user on mailing list use case', async () => {
+describe('Register user on mailing list use case', () => {
   test('Should add user with complete data to mailing list', async () => {
     const users: UserData[] = []
     console.log(users)
